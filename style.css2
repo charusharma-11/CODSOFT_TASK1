@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --bg: #f4f6fb;
+    --card: #ffffff;
+    --text: #222222;
+    --muted: #777777;
+    --border: #dddddd;
+    --danger: #e74c3c;
+    --success: #27ae60;
+}
+
+body.dark {
+    --bg: #181a20;
+    --card: #242730;
+    --text: #ffffff;
+    --muted: #b8b8b8;
+    --border: #444444;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    min-height: 100vh;
+    padding: 40px 15px;
+    color: var(--text);
+}
+
+.app {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    background: var(--card);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 6px;
+}
+
+header p {
+    color: var(--muted);
+}
+
+.theme-btn {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Statistics */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: var(--bg);
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 25px;
+    color: var(--primary);
+}
+
+.stat-card p {
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* Form */
+
+.task-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr auto;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--text);
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+}
+
+#addBtn {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#addBtn:hover {
+    opacity: 0.9;
+}
+
+/* Search */
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    flex: 1;
+}
+
+/* Tasks */
+
+#taskList {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 12px;
+    background: var(--bg);
+    border-radius: 12px;
+    border-left: 5px solid var(--primary);
+}
+
+.task-main {
+    flex: 1;
+}
+
+.task-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+.task-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.badge {
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    background: #e8e8e8;
+    color: #333;
+}
+
+.priority-high {
+    background: #ffd6d6;
+    color: #c0392b;
+}
+
+.priority-medium {
+    background: #fff0c2;
+    color: #8a6500;
+}
+
+.priority-low {
+    background: #d8f5df;
+    color: #1e7e34;
+}
+
+.actions {
+    display: flex;
+    gap: 7px;
+}
+
+.actions button {
+    border: none;
+    padding: 8px 10px;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+}
+
+.complete-btn {
+    background: var(--success);
+}
+
+.edit-btn {
+    background: var(--primary);
+}
+
+.delete-btn {
+    background: var(--danger);
+}
+
+.actions button:hover {
+    opacity: 0.85;
+}
+
+/* Empty */
+
+.empty-message {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+
+    .task-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #taskInput {
+        grid-column: 1 / -1;
+    }
+
+    #addBtn {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 550px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .app {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .task-form {
+        grid-template-columns: 1fr;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .task-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .actions {
+        justify-content: flex-end;
+    }
+}
