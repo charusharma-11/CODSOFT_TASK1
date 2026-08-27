@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #f5f7ff, #eef1ff);
+    color: #20243a;
+    min-height: 100vh;
+}
+
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: auto;
+    padding: 35px 0;
+}
+
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.small-title {
+    color: #6c63ff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+.header h1 {
+    font-size: 42px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #777b91;
+    font-size: 15px;
+}
+
+.wallet-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 20px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 10px 25px rgba(50, 50, 100, 0.08);
+}
+
+
+/* SUMMARY */
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 10px 30px rgba(50, 50, 100, 0.07);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.income-card .card-icon {
+    background: #e8fff3;
+    color: #18a86b;
+}
+
+.expense-card .card-icon {
+    background: #fff0f1;
+    color: #ef476f;
+}
+
+.balance-card .card-icon {
+    background: #eeeeff;
+    color: #6c63ff;
+}
+
+.card p {
+    color: #85899c;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.card h2 {
+    font-size: 25px;
+}
+
+
+/* MAIN GRID */
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 22px;
+}
+
+.form-box,
+.history-box {
+    background: white;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(50, 50, 100, 0.07);
+}
+
+.form-box h2,
+.history-box h2 {
+    font-size: 21px;
+}
+
+.form-subtitle {
+    color: #9296a8;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+
+/* TYPE BUTTONS */
+
+.type-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 22px 0;
+}
+
+.type-btn {
+    flex: 1;
+    border: 1px solid #e2e4ed;
+    background: #fafaff;
+    padding: 11px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #777b91;
+}
+
+.type-btn.active {
+    background: #6c63ff;
+    color: white;
+    border-color: #6c63ff;
+}
+
+
+/* FORM */
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 15px 0 7px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #e0e2eb;
+    border-radius: 10px;
+    outline: none;
+    background: #fafaff;
+    color: #303449;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    border-color: #6c63ff;
+    background: white;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.add-btn {
+    width: 100%;
+    border: none;
+    background: #6c63ff;
+    color: white;
+    padding: 14px;
+    border-radius: 11px;
+    margin-top: 22px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    background: #574fe0;
+    transform: translateY(-1px);
+}
+
+
+/* HISTORY */
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.history-header select {
+    width: 170px;
+}
+
+
+/* TRANSACTIONS */
+
+.transaction-list {
+    max-height: 430px;
+    overflow-y: auto;
+}
+
+.transaction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 5px;
+    border-bottom: 1px solid #eeeeF4;
+}
+
+.transaction:last-child {
+    border-bottom: none;
+}
+
+.transaction-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.transaction-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.transaction-icon.income {
+    background: #e8fff3;
+}
+
+.transaction-icon.expense {
+    background: #fff0f1;
+}
+
+.transaction-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.transaction-meta {
+    color: #999dae;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.transaction-right {
+    text-align: right;
+}
+
+.transaction-amount {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.transaction-amount.income {
+    color: #16a36a;
+}
+
+.transaction-amount.expense {
+    color: #ef476f;
+}
+
+.action-buttons {
+    margin-top: 6px;
+}
+
+.action-buttons button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.edit-btn {
+    color: #6c63ff;
+}
+
+.delete-btn {
+    color: #ef476f;
+}
+
+
+/* EMPTY */
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999dae;
+}
+
+.empty-state div {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #55596d;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.empty-state span {
+    font-size: 13px;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    color: #9699a9;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .container {
+        width: 94%;
+        padding: 22px 0;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .wallet-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 23px;
+    }
+
+    .form-box,
+    .history-box {
+        padding: 20px;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .history-header {
+        flex-direction: column;
+    }
+
+    .history-header select {
+        width: 100%;
+    }
+
+    .transaction {
+        align-items: flex-start;
+    }
+}
