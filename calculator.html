@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexa Calculator</title>
+
+    <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <h1>Nexa</h1>
+        <p class="subtitle">Smart Calculator</p>
+
+        <input type="text" id="display" value="0" readonly>
+
+        <div class="buttons">
+
+            <button class="clear" onclick="clearDisplay()">AC</button>
+            <button onclick="deleteLast()">⌫</button>
+            <button onclick="appendValue('%')">%</button>
+            <button class="operator" onclick="appendValue('/')">÷</button>
+
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button class="operator" onclick="appendValue('*')">×</button>
+
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button class="operator" onclick="appendValue('-')">−</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button class="operator" onclick="appendValue('+')">+</button>
+
+            <button class="zero" onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button class="equal" onclick="calculate()">=</button>
+
+        </div>
+
+        <p class="footer">
+            Built with HTML • CSS • JavaScript
+        </p>
+
+    </div>
+
+
+    <script>
+
+        const display = document.getElementById("display");
+
+        function appendValue(value) {
+
+            if (display.value === "Error") {
+                display.value = "0";
+            }
+
+            if (display.value === "0" && value !== ".") {
+                display.value = value;
+            } else {
+                display.value += value;
+            }
+        }
+
+
+        function clearDisplay() {
+            display.value = "0";
+        }
+
+
+        function deleteLast() {
+
+            if (
+                display.value === "Error" ||
+                display.value.length <= 1
+            ) {
+                display.value = "0";
+            } else {
+                display.value =
+                    display.value.slice(0, -1);
+            }
+        }
+
+
+        function calculate() {
+
+            try {
+
+                let expression = display.value;
+
+                let result = eval(expression);
+
+                if (!isFinite(result)) {
+                    display.value = "Error";
+                } else {
+                    display.value = result;
+                }
+
+            } catch (error) {
+
+                display.value = "Error";
+            }
+        }
+
+
+        document.addEventListener("keydown", function(event) {
+
+            if (
+                event.key >= "0" &&
+                event.key <= "9"
+            ) {
+                appendValue(event.key);
+            }
+
+            if (
+                event.key === "+" ||
+                event.key === "-" ||
+                event.key === "*" ||
+                event.key === "/" ||
+                event.key === "." ||
+                event.key === "%"
+            ) {
+                appendValue(event.key);
+            }
+
+            if (event.key === "Enter") {
+                calculate();
+            }
+
+            if (event.key === "Backspace") {
+                deleteLast();
+            }
+
+            if (event.key === "Escape") {
+                clearDisplay();
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
