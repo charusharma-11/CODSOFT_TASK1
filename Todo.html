@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charu's Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <header>
+            <div>
+                <h1>My Todo List</h1>
+                <p>Organize your day, one task at a time.</p>
+            </div>
+
+            <button id="themeBtn" class="theme-btn">🌙</button>
+        </header>
+
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat-card">
+                <h3 id="totalCount">0</h3>
+                <p>Total</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="pendingCount">0</h3>
+                <p>Pending</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="completedCount">0</h3>
+                <p>Completed</p>
+            </div>
+        </div>
+
+        <!-- Add Task -->
+        <div class="task-form">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter your task..."
+                maxlength="100"
+            >
+
+            <select id="categoryInput">
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="Study">Study</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <select id="priorityInput">
+                <option value="Low">Low Priority</option>
+                <option value="Medium" selected>Medium Priority</option>
+                <option value="High">High Priority</option>
+            </select>
+
+            <input type="date" id="dateInput">
+
+            <button id="addBtn">Add Task</button>
+
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔎 Search tasks..."
+            >
+
+            <select id="filterInput">
+                <option value="all">All Tasks</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+                <option value="high">High Priority</option>
+            </select>
+
+        </div>
+
+        <!-- Task List -->
+        <div id="emptyMessage" class="empty-message">
+            No tasks found. Add your first task!
+        </div>
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
